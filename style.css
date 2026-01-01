@@ -225,3 +225,128 @@ footer{
     transform: scale(1.15);
     background: rgba(255,255,255,0.3);
 }
+
+
+
+
+
+
+
+
+/* =======================
+   BASIC RESPONSIVENESS
+========================== */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+
+    body {
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 16px;
+        margin: 5px 0;
+    }
+
+    /* Hero Section */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .hero img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+
+    /* About Section */
+    .about {
+        padding: 20px;
+        font-size: 15px;
+    }
+
+    /* Skills Section */
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .skill-tag {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    /* Projects Cards */
+    .projects {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .project-card {
+        width: 100%;
+        padding: 15px;
+        text-align: left;
+        margin: 0 auto;
+    }
+
+    /* Contact Icons */
+    .contact-icons {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .contact-icons img,
+    .contact-icons i {
+        width: 40px;
+        height: 40px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px 0;
+        font-size: 14px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .hero img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .skill-tag {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .project-card {
+        font-size: 14px;
+    }
+}
