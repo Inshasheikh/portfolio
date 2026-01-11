@@ -740,3 +740,59 @@ window.sendContactMessage = function(name, email, message) {
 
 
 
+/* ============================================
+   FILE: script.js
+   PURPOSE: Interactive functionality for portfolio
+   MOBILE FEATURES: Touch gestures, performance optimizations
+   ============================================ */
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Portfolio loaded - Mobile optimized version');
+
+    // ============================================
+    // 1. MOBILE NAVIGATION ENHANCEMENTS
+    // ============================================
+    
+    /**
+     * Creates mobile-friendly navigation with hamburger menu
+     * Adds touch-friendly improvements for mobile devices
+     */
+    function enhanceMobileNavigation() {
+        const nav = document.querySelector('nav');
+        const menuBtn = document.getElementById('menuBtn');
+        
+        if (!menuBtn) return;
+        
+        // Add touch event listeners for better mobile UX
+        menuBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.classList.add('touch-active');
+        });
+        
+        menuBtn.addEventListener('touchend', function() {
+            this.classList.remove('touch-active');
+            toggleMobileMenu();
+        });
+        
+        // Prevent accidental double-taps on mobile
+        let lastTap = 0;
+        menuBtn.addEventListener('touchend', function(e) {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            if (tapLength < 500 && tapLength > 0) {
+                e.preventDefault();
+            }
+            lastTap = currentTime;
+        });
+    }
+    
+    function toggleMobileMenu() {
+        const navMenu = document.getElementById('navMenu');
+        const menuBtn = document.getElementById('menuBtn');
+        
+        if (!navMenu || !menuBtn) return;
+        
+        navMenu.classList.toggle('active');
+        
+        // Change
