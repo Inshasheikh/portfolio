@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- CHARACTER ENCODING AND VIEWPORT FOR MOBILE RESPONSIVENESS -->
     <meta charset="UTF-8">
+    <!-- MOST IMPORTANT FOR MOBILE: Ensures proper scaling on all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TITLE FOR BROWSER TAB -->
     <title>Insha Mahfooz | Portfolio</title>
+    
+    <!-- EXTERNAL RESOURCES -->
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for typography -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap">
+    
+    <!-- INLINE CSS FOR FAST LOADING ON MOBILE -->
     <style>
+        /* ==============================
+           CSS VARIABLES FOR CONSISTENCY
+           ============================== */
         :root {
             --primary-color: #7c3aed;
             --primary-dark: #6d28d9;
@@ -18,30 +31,39 @@
             --transition: all 0.3s ease;
         }
 
+        /* ==============================
+           RESET AND BASE STYLES
+           ============================== */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Important for responsive layouts */
         }
 
+        /* Smooth scrolling for better UX */
         html {
             scroll-behavior: smooth;
         }
 
+        /* Base body styles */
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--white);
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevents horizontal scroll on mobile */
         }
 
+        /* ==============================
+           TYPOGRAPHY
+           ============================== */
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             line-height: 1.2;
         }
 
+        /* Section headings with decorative line */
         h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
@@ -62,13 +84,18 @@
             border-radius: 2px;
         }
 
+        /* ==============================
+           SECTION LAYOUT
+           ============================== */
         section {
             padding: 5rem 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Navigation */
+        /* ==============================
+           NAVIGATION - FIXED FOR MOBILE
+           ============================== */
         nav {
             display: flex;
             justify-content: space-between;
@@ -76,11 +103,11 @@
             padding: 1.5rem 5%;
             background-color: var(--white);
             box-shadow: var(--shadow);
-            position: fixed;
+            position: fixed; /* Stays at top on scroll */
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
+            z-index: 1000; /* Always on top */
         }
 
         .logo {
@@ -90,6 +117,7 @@
             color: var(--primary-color);
         }
 
+        /* Navigation menu for desktop */
         nav ul {
             display: flex;
             list-style: none;
@@ -111,6 +139,7 @@
             color: var(--primary-color);
         }
 
+        /* Animated underline effect */
         nav ul li a::after {
             content: '';
             position: absolute;
@@ -126,6 +155,7 @@
             width: 100%;
         }
 
+        /* Mobile hamburger menu button - hidden on desktop */
         .menu-btn {
             display: none;
             font-size: 1.5rem;
@@ -135,13 +165,15 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* ==============================
+           HERO SECTION - FIRST IMPRESSION
+           ============================== */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 100vh;
-            padding-top: 80px;
+            min-height: 100vh; /* Full viewport height */
+            padding-top: 80px; /* Space for fixed nav */
             background: linear-gradient(135deg, #f8f7ff 0%, #eef2ff 100%);
         }
 
@@ -156,6 +188,7 @@
             color: var(--text-color);
         }
 
+        /* Gradient text effect for name */
         .hero-text h1 span {
             color: var(--primary-color);
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
@@ -169,12 +202,15 @@
             color: #555;
         }
 
+        /* ==============================
+           BUTTON STYLES - TOUCH FRIENDLY
+           ============================== */
         .btn {
             display: inline-block;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
             padding: 0.9rem 2rem;
-            border-radius: 50px;
+            border-radius: 50px; /* Rounded for mobile touch */
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
@@ -183,11 +219,15 @@
             box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
         }
 
+        /* Hover effect with lift */
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
         }
 
+        /* ==============================
+           PROFILE IMAGE WITH ANIMATION
+           ============================== */
         .hero-img {
             flex: 1;
             display: flex;
@@ -198,19 +238,22 @@
         .hero-img img {
             width: 350px;
             height: 350px;
-            border-radius: 50%;
-            object-fit: cover;
+            border-radius: 50%; /* Circular image */
+            object-fit: cover; /* Ensures image fills circle */
             border: 10px solid var(--white);
             box-shadow: var(--shadow);
-            animation: float 3s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite; /* Floating effect */
         }
 
+        /* Floating animation keyframes */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
 
-        /* About Section */
+        /* ==============================
+           ABOUT SECTION
+           ============================== */
         .about {
             background-color: var(--white);
         }
@@ -224,11 +267,14 @@
             color: #555;
         }
 
-        /* Skills Section */
+        /* ==============================
+           SKILLS SECTION
+           ============================== */
         .skills {
             background-color: var(--light-bg);
         }
 
+        /* Grid layout for skill tags */
         .skill-box {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -244,7 +290,7 @@
             font-weight: 500;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--primary-color); /* Accent border */
         }
 
         .skill-box span:hover {
@@ -252,11 +298,14 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Projects Section */
+        /* ==============================
+           PROJECTS SECTION
+           ============================== */
         .projects {
             background-color: var(--white);
         }
 
+        /* Responsive grid for project cards */
         .project-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -270,11 +319,11 @@
             padding: 2rem;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border-top: 5px solid var(--primary-color);
+            border-top: 5px solid var(--primary-color); /* Color accent */
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px); /* Lift effect */
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
@@ -289,6 +338,7 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Project link with arrow icon */
         .project-link {
             color: var(--primary-color);
             text-decoration: none;
@@ -303,23 +353,27 @@
         }
 
         .project-link:hover i {
-            transform: translateX(5px);
+            transform: translateX(5px); /* Arrow moves on hover */
         }
 
-        /* Contact Section */
+        /* ==============================
+           CONTACT SECTION
+           ============================== */
         .contact {
             background-color: var(--light-bg);
         }
 
+        /* Flex layout for contact icons */
         .contact-box {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 2rem;
             margin-top: 2rem;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Wraps on small screens */
         }
 
+        /* Circular contact icons */
         .icon {
             display: flex;
             justify-content: center;
@@ -327,7 +381,7 @@
             width: 60px;
             height: 60px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
+            border-radius: 50%; /* Perfect circle */
             color: var(--white);
             font-size: 1.5rem;
             text-decoration: none;
@@ -336,11 +390,13 @@
         }
 
         .icon:hover {
-            transform: translateY(-5px) scale(1.1);
+            transform: translateY(-5px) scale(1.1); /* Bounce effect */
             box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
         }
 
-        /* Footer */
+        /* ==============================
+           FOOTER
+           ============================== */
         footer {
             background-color: var(--primary-color);
             color: var(--white);
@@ -352,7 +408,9 @@
             font-size: 1rem;
         }
 
-        /* Back to Top Button */
+        /* ==============================
+           BACK TO TOP BUTTON
+           ============================== */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -371,7 +429,7 @@
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
-            z-index: 999;
+            z-index: 999; /* Above other content */
         }
 
         .back-to-top.active {
@@ -379,7 +437,9 @@
             visibility: visible;
         }
 
-        /* Responsive Design */
+        /* ==============================
+           RESPONSIVE DESIGN - TABLET
+           ============================== */
         @media screen and (max-width: 992px) {
             h2 {
                 font-size: 2.2rem;
@@ -389,30 +449,36 @@
                 font-size: 3rem;
             }
             
+            /* Smaller profile image for tablet */
             .hero-img img {
                 width: 300px;
                 height: 300px;
             }
         }
 
+        /* ==============================
+           RESPONSIVE DESIGN - MOBILE
+           ============================== */
         @media screen and (max-width: 768px) {
+            /* Mobile navigation styles */
             nav ul {
                 position: fixed;
                 top: 70px;
                 left: 0;
                 width: 100%;
                 background-color: var(--white);
-                flex-direction: column;
+                flex-direction: column; /* Stack vertically */
                 align-items: center;
                 padding: 2rem 0;
                 box-shadow: var(--shadow);
-                transform: translateY(-100%);
+                transform: translateY(-100%); /* Hidden by default */
                 opacity: 0;
                 visibility: hidden;
                 transition: var(--transition);
                 z-index: 999;
             }
 
+            /* Show mobile menu when active */
             nav ul.active {
                 transform: translateY(0);
                 opacity: 1;
@@ -420,17 +486,19 @@
             }
 
             nav ul li {
-                margin: 1rem 0;
+                margin: 1rem 0; /* More spacing for touch */
             }
 
+            /* Show hamburger button on mobile */
             .menu-btn {
                 display: block;
             }
 
+            /* Stack hero content vertically on mobile */
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 120px;
+                padding-top: 120px; /* More space for nav */
             }
 
             .hero-text {
@@ -441,21 +509,28 @@
                 font-size: 2.5rem;
             }
 
+            /* Smaller profile image for mobile */
             .hero-img img {
                 width: 250px;
                 height: 250px;
             }
 
+            /* 2-column grid for skills on mobile */
             .skill-box {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
         }
 
+        /* ==============================
+           RESPONSIVE DESIGN - SMALL PHONES
+           ============================== */
         @media screen and (max-width: 480px) {
+            /* Reduce padding for very small screens */
             section {
                 padding: 3rem 1rem;
             }
 
+            /* Smaller text for mobile */
             .hero-text h1 {
                 font-size: 2rem;
             }
@@ -468,19 +543,40 @@
                 font-size: 1.8rem;
             }
 
+            /* Single column for projects on mobile */
             .project-container {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Adjust button spacing for mobile */
+            .hero-btns {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .hero-btns .btn {
+                margin-left: 0 !important;
+                margin-top: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- ==============================
+         NAVIGATION BAR
+         ============================== -->
     <nav>
+        <!-- Logo/Brand Name -->
         <div class="logo">INSHA MAHFOOZ</div>
-        <button class="menu-btn" id="menuBtn">
+        
+        <!-- Mobile Hamburger Menu Button -->
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu">
             <i class="fas fa-bars"></i>
         </button>
+        
+        <!-- Navigation Menu List -->
         <ul id="navMenu">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -490,119 +586,161 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ==============================
+         HERO SECTION - LANDING PAGE
+         ============================== -->
     <section id="home" class="hero">
         <div class="hero-text">
             <h1>Hey, I'm <span>Insha Mahfooz</span></h1>
             <p>A Student at Kendriya Vidyalaya | Python Developer | Web Developer | Cybersecurity Learner</p>
             <div class="hero-btns">
                 <a href="#projects" class="btn">See My Work</a>
-                <a href="#contact" class="btn" style="background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); margin-left: 1rem;">Contact Me</a>
+                <a href="#contact" class="btn" style="background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color);">Contact Me</a>
             </div>
         </div>
         <div class="hero-img">
-            <img src="photo.jpg" alt="Insha Mahfooz">
+            <!-- Profile Photo - Replace "photo.jpg" with your actual image -->
+            <img src="photo.jpg" alt="Insha Mahfooz - Student and Developer" loading="lazy">
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ==============================
+         ABOUT ME SECTION
+         ============================== -->
     <section id="about" class="about">
         <h2>About Me</h2>
         <p>
-            I'm Insha Mahfooz, a Class 12 student at Kendriya Vidyalaya, passionate about technology and programming. I'm currently building my skills in Python, SQL, HTML, and CSS while exploring the exciting world of cybersecurity. I enjoy creating projects that solve real-world problems and continuously improving my technical abilities. My goal is to become a proficient developer and contribute to innovative tech solutions in the future.
+            I'm Insha Mahfooz, a Class 12 student at Kendriya Vidyalaya, passionate about technology and programming. 
+            I'm currently building my skills in Python, SQL, HTML, and CSS while exploring the exciting world of cybersecurity. 
+            I enjoy creating projects that solve real-world problems and continuously improving my technical abilities. 
+            My goal is to become a proficient developer and contribute to innovative tech solutions in the future.
         </p>
         <p style="margin-top: 1.5rem;">
-            When I'm not coding, I'm learning about cybersecurity, exploring new technologies, or working on improving my spoken English and problem-solving skills. I believe in the power of continuous learning and the magic that happens when creativity meets technology.
+            When I'm not coding, I'm learning about cybersecurity, exploring new technologies, or working on improving 
+            my spoken English and problem-solving skills. I believe in the power of continuous learning and the magic 
+            that happens when creativity meets technology.
         </p>
     </section>
 
-    <!-- Skills Section -->
+    <!-- ==============================
+         SKILLS SECTION
+         ============================== -->
     <section id="skills" class="skills">
         <h2>My Skills</h2>
         <div class="skill-box">
+            <!-- Programming & Web Skills -->
             <span>HTML</span>
-            <span>css</span>
+            <span>CSS</span>
             <span>Python</span>
             <span>SQL</span>
             <span>Oracle</span>
+            
+            <!-- Additional Skills -->
             <span>Abacus</span>
             <span>Spoken English</span>
             <span>Git & GitHub</span>
             <span>Problem Solving</span>
+            
+            <!-- Technical Skills -->
             <span>Responsive Design</span>
             <span>JavaScript Basics</span>
             <span>Cybersecurity Basics</span>
-            
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- ==============================
+         PROJECTS SECTION
+         ============================== -->
     <section id="projects" class="projects">
         <h2>My Projects</h2>
         <div class="project-container">
+            <!-- Project 1: Python Calculator -->
             <div class="project-card">
                 <h3>Simple Calculator (Python)</h3>
-                <p>A basic calculator application built with Python that performs addition, subtraction, multiplication, and division operations with a user-friendly interface.</p>
+                <p>A basic calculator application built with Python that performs addition, subtraction, 
+                   multiplication, and division operations with a user-friendly interface.</p>
                 <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
             </div>
 
+            <!-- Project 2: Number Guessing Game -->
             <div class="project-card">
                 <h3>Number Guessing Game</h3>
-                <p>An interactive Python game where the player guesses a randomly generated number with hints and score tracking for an engaging gaming experience.</p>
+                <p>An interactive Python game where the player guesses a randomly generated number 
+                   with hints and score tracking for an engaging gaming experience.</p>
                 <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
             </div>
 
+            <!-- Project 3: Portfolio Website -->
             <div class="project-card">
                 <h3>Responsive Portfolio Website</h3>
-                <p>A modern, fully responsive portfolio website with a purple-gradient theme, animations, and mobile-first design built with HTML, CSS & JavaScript.</p>
+                <p>A modern, fully responsive portfolio website with a purple-gradient theme, 
+                   animations, and mobile-first design built with HTML, CSS & JavaScript.</p>
                 <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ==============================
+         CONTACT SECTION
+         ============================== -->
     <section id="contact" class="contact">
         <h2>Get In Touch</h2>
         <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem; color: #666;">
             Feel free to reach out to me for collaboration, opportunities, or just to say hello!
         </p>
         <div class="contact-box">
-            <a href="mailto:insasheikh2007@gmail.com" class="icon" target="_blank" title="Email">
+            <!-- Email Contact -->
+            <a href="mailto:insasheikh2007@gmail.com" class="icon" target="_blank" title="Send Email to Insha">
                 <i class="fas fa-envelope"></i>
             </a>
-            <a href="https://github.com/Inshasheikh" class="icon" target="_blank" title="GitHub">
+            
+            <!-- GitHub Profile -->
+            <a href="https://github.com/Inshasheikh" class="icon" target="_blank" title="View GitHub Profile">
                 <i class="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/insha-sheikh-8750ab394" class="icon" target="_blank" title="LinkedIn">
+            
+            <!-- LinkedIn Profile -->
+            <a href="https://www.linkedin.com/in/insha-sheikh-8750ab394" class="icon" target="_blank" title="Connect on LinkedIn">
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ==============================
+         FOOTER
+         ============================== -->
     <footer>
         <p>© 2026 Insha Mahfooz | All Rights Reserved</p>
-        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9;">Designed with  By Insha Mahfooz</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9;">Designed with By Insha Mahfooz</p>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#home" class="back-to-top" id="backToTop">
+    <!-- ==============================
+         BACK TO TOP BUTTON
+         ============================== -->
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- ==============================
+         JAVASCRIPT FOR INTERACTIVITY
+         ============================== -->
     <script>
-        // Mobile Menu Toggle
+        // ==============================
+        // MOBILE MENU TOGGLE FUNCTIONALITY
+        // ==============================
         const menuBtn = document.getElementById('menuBtn');
         const navMenu = document.getElementById('navMenu');
         
+        // Toggle mobile menu when hamburger button is clicked
         menuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            // Change icon from bars to X when menu is open
             menuBtn.innerHTML = navMenu.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
         
-        // Close menu when clicking on a link
+        // Close mobile menu when a link is clicked (for better UX)
         document.querySelectorAll('#navMenu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -610,9 +748,12 @@
             });
         });
         
-        // Back to Top Button
+        // ==============================
+        // BACK TO TOP BUTTON FUNCTIONALITY
+        // ==============================
         const backToTop = document.getElementById('backToTop');
         
+        // Show/hide back to top button based on scroll position
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
                 backToTop.classList.add('active');
@@ -621,7 +762,9 @@
             }
         });
         
-        // Smooth scrolling for all links
+        // ==============================
+        // SMOOTH SCROLLING FOR NAVIGATION
+        // ==============================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -631,6 +774,7 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
+                    // Scroll to section with offset for fixed navigation
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -639,11 +783,14 @@
             });
         });
         
-        // Simple animation on scroll
+        // ==============================
+        // SCROLL ANIMATIONS
+        // ==============================
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.1 // Trigger when 10% of element is visible
         };
         
+        // Create Intersection Observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if(entry.isIntersecting) {
@@ -653,12 +800,45 @@
             });
         }, observerOptions);
         
-        // Apply animation to sections
+        // Apply fade-in animation to all sections
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(20px)';
             section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(section);
+        });
+        
+        // ==============================
+        // TOUCH-FRIENDLY ENHANCEMENTS
+        // ==============================
+        
+        // Increase touch target size for buttons on mobile
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('.btn, .icon').forEach(element => {
+                element.style.minHeight = '44px';
+                element.style.minWidth = '44px';
+                element.style.display = 'inline-flex';
+                element.style.alignItems = 'center';
+                element.style.justifyContent = 'center';
+            });
+        }
+        
+        // ==============================
+        // LOADING OPTIMIZATIONS
+        // ==============================
+        
+        // Lazy load images after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                if (img.complete) {
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', function() {
+                        this.classList.add('loaded');
+                    });
+                }
+            });
         });
     </script>
 </body>
