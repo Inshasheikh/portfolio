@@ -209,3 +209,35 @@ button, a {
         margin: 0.5rem;
     }
 }
+
+/* Regular Font */
+@font-face {
+    font-family: 'DMSerif';
+    src: url('fonts/DMSerifText-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Italic Font */
+@font-face {
+    font-family: 'DMSerif';
+    src: url('fonts/DMSerifText-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+/* Default Color (Laptop/Desktop) */
+body {
+    background: #101820; /* Dark Blue */
+    color: white;
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
+    body {
+        background: #f6e58d; /* Yellow Shade */
+        color: black;
+    }
+}
