@@ -795,4 +795,436 @@ document.addEventListener('DOMContentLoaded', function() {
         
         navMenu.classList.toggle('active');
         
-        // Change
+        // Change icon and prevent body scroll
+        if (navMenu.classList.contains('active')) {
+            menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            document.body.style.overflow = 'hidden';
+            
+            // Close menu when tapping outside on mobile
+            document.addEventListener('touchstart', closeMenuOnOutsideTap);
+        } else {
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = 'auto';
+            document.removeEventListener('touchstart', closeMenuOnOutsideTap);
+        }
+    }
+    
+    function closeMenuOnOutsideTap(e) {
+        const navMenu = document.getElementById('navMenu');
+        const menuBtn = document.getElementById('menuBtn');
+        
+        if (!navMenu.contains(e.target) && e.target !== menuBtn) {
+            navMenu.classList.remove('active');
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = 'auto';
+            document.removeEventListener('touchstart', closeMenuOnOutsideTap);
+        }
+    }
+    
+    // ============================================
+    // 2. TOUCH-FRIENDLY SMOOTH SCROLLING
+    // ============================================
+    
+    /**
+     * Enhanced smooth scrolling for touch devices
+     * Includes momentum scrolling and better performance
+     */
+    function setupTouchFriendlyScrolling() {
+        const links = document.querySelectorAll('a[href^="#"]');
+        
+        links.forEach(link => {
+            // Add touch feedback
+            link.addEventListener('touchstart', function() {
+                this.classList.add('touch-active');
+            });
+            
+            link.addEventListener('touchend', function() {
+                this.classList.remove('touch-active');
+            });
+            
+            // Smooth scroll on click/tap
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const navMenu = document.getElementById('navMenu');
+                    if (navMenu && navMenu.classList.contains('active')) {
+                        toggleMobileMenu();
+                    }
+                    
+                    // Calculate position with header offset
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    // Use requestAnimationFrame for smoother scrolling
+                    let startTime = null;
+                    const duration = 800; // ms
+                    
+                    function scrollStep(timestamp) {
+                        if (!startTime) startTime = timestamp;
+                        const progress = timestamp - startTime;
+                        const ease = progress / duration;
+                        
+                        // Easing function for smoother scroll
+                        const eased = ease < 0.5 
+                            ? 2 * ease * ease 
+                            : -1 + (4 - 2 * ease) * ease;
+                        
+                        window.scrollTo(0, offsetPosition * eased);
+                        
+                        if (progress < duration) {
+                            requestAnimationFrame(scrollStep);
+                        }
+                    }
+                    
+                    requestAnimationFrame(scrollStep);
+                }
+            });
+        });
+    }
+    
+    // ============================================
+    // 3. MOBILE PERFORMANCE OPTIMIZATIONS
+    // ============================================
+    
+    /**
+     * Optimizes performance for mobile devices
+     * Includes lazy loading, debouncing, and memory management
+     */
+    function optimizeMobilePerformance() {
+        // Lazy load all images
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            if (!img.hasAttribute('loading')) {
+                img.setAttribute('loading', 'lazy');
+            }
+        });
+        
+        // Debounce scroll events for better performance
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                // Back to top button visibility
+                const backToTop = document.getElementById('backToTop');
+                if (backToTop) {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('active');
+                    } else {
+                        backToTop.classList.remove('active');
+                    }
+                }
+            }, 100);
+        });
+        
+        // Optimize animations for mobile
+        if ('matchMedia' in window) {
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (reducedMotion.matches) {
+                document.querySelectorAll('*').forEach(el => {
+                    el.style.animation = 'none';
+                    el.style.transition = 'none';
+                });
+            }
+        }
+    }
+    
+    // ============================================
+    // 4. TOUCH GESTURE SUPPORT
+    // ============================================
+    
+    /**
+     * Adds swipe gestures for mobile navigation
+     * Supports left/right swipe for project navigation
+     */
+    function setupTouchGestures() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        // Detect swipe on project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            card.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe(this, touchStartX, touchEndX);
+            });
+        });
+        
+        function handleSwipe(element, startX, endX) {
+            const threshold = 50; // Minimum swipe distance
+            
+            if (startX - endX > threshold) {
+                // Swipe left - show next project
+                element.style.transform = 'translateX(-10px)';
+                setTimeout(() => {
+                    element.style.transform = 'translateY(-12px)';
+                }, 300);
+            }
+            
+            if (endX - startX > threshold) {
+                // Swipe right - show previous project
+                element.style.transform = 'translateX(10px)';
+                setTimeout(() => {
+                    element.style.transform = 'translateY(-12px)';
+                }, 300);
+            }
+        }
+    }
+    
+    // ============================================
+    // 5. MOBILE-FRIENDLY ANIMATIONS
+    // ============================================
+    
+    /**
+     * Optimized animations for mobile devices
+     * Uses Intersection Observer for scroll animations
+     */
+    function setupMobileAnimations() {
+        // Check if Intersection Observer is supported
+        if (!('IntersectionObserver' in window)) {
+            // Fallback for older browsers
+            document.querySelectorAll('.project-card, .skill-box span').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+            return;
+        }
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    
+                    // Add slight delay for staggered animations on mobile
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, entry.target.dataset.delay || 0);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements with delay for staggered animation
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            card.dataset.delay = index * 100;
+            observer.observe(card);
+        });
+        
+        document.querySelectorAll('.skill-box span').forEach((skill, index) => {
+            skill.style.opacity = '0';
+            skill.style.transform = 'translateY(20px)';
+            skill.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            skill.dataset.delay = index * 50;
+            observer.observe(skill);
+        });
+    }
+    
+    // ============================================
+    // 6. NETWORK AND BATTERY AWARE FEATURES
+    // ============================================
+    
+    /**
+     * Adjusts features based on network and battery conditions
+     * Improves UX on slow networks or low battery
+     */
+    function setupAdaptiveFeatures() {
+        // Check network connection
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            
+            if (connection.saveData || connection.effectiveType === 'slow-2g') {
+                // Disable animations and reduce image quality
+                document.querySelectorAll('img').forEach(img => {
+                    if (img.dataset.lowRes) {
+                        img.src = img.dataset.lowRes;
+                    }
+                });
+                
+                // Disable non-essential animations
+                document.querySelectorAll('.hero-img img').forEach(img => {
+                    img.style.animation = 'none';
+                });
+            }
+        }
+        
+        // Check battery status if supported
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(battery => {
+                if (battery.level < 0.2 || battery.charging === false) {
+                    // Reduce animations on low battery
+                    document.querySelectorAll('*').forEach(el => {
+                        if (el.style.animation || el.style.transition) {
+                            el.style.animationDuration = '0.5s';
+                            el.style.transitionDuration = '0.5s';
+                        }
+                    });
+                }
+            });
+        }
+    }
+    
+    // ============================================
+    // 7. INITIALIZE ALL MOBILE FEATURES
+    // ============================================
+    
+    function initializeMobileFeatures() {
+        console.log('Initializing mobile-optimized features...');
+        
+        // Initialize core features
+        enhanceMobileNavigation();
+        setupTouchFriendlyScrolling();
+        setupMobileAnimations();
+        optimizeMobilePerformance();
+        
+        // Initialize optional features based on device capabilities
+        if ('ontouchstart' in window) {
+            setupTouchGestures();
+        }
+        
+        // Initialize adaptive features
+        setupAdaptiveFeatures();
+        
+        // Add CSS for touch states
+        const style = document.createElement('style');
+        style.textContent = `
+            .touch-active {
+                opacity: 0.7;
+                transform: scale(0.95);
+            }
+            
+            @media (hover: none) and (pointer: coarse) {
+                .btn, .icon, nav a {
+                    min-height: 44px;
+                    min-width: 44px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+                .project-card {
+                    cursor: pointer;
+                }
+            }
+            
+            /* Better scrollbar for mobile */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            
+            ::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+            
+            ::-webkit-scrollbar-thumb {
+                background: #7c3aed;
+                border-radius: 4px;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        console.log('Mobile features initialized successfully!');
+    }
+    
+    // ============================================
+    // 8. ERROR HANDLING AND FALLBACKS
+    // ============================================
+    
+    // Global error handler for better UX
+    window.addEventListener('error', function(e) {
+        console.error('Error:', e.message);
+        
+        // Show user-friendly error message
+        if (document.getElementById('error-message')) return;
+        
+        const errorDiv = document.createElement('div');
+        errorDiv.id = 'error-message';
+        errorDiv.style.cssText = `
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #ff4444;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 9999;
+            display: none;
+        `;
+        errorDiv.textContent = 'Something went wrong. Please refresh.';
+        document.body.appendChild(errorDiv);
+        
+        errorDiv.style.display = 'block';
+        setTimeout(() => {
+            errorDiv.style.display = 'none';
+        }, 3000);
+    });
+    
+    // ============================================
+    // START INITIALIZATION
+    // ============================================
+    
+    // Initialize with delay to ensure DOM is ready
+    setTimeout(initializeMobileFeatures, 100);
+    
+    // Re-initialize on orientation change
+    window.addEventListener('orientationchange', function() {
+        setTimeout(initializeMobileFeatures, 300);
+    });
+    
+    // Re-initialize on resize (with debounce)
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(initializeMobileFeatures, 250);
+    });
+});
+
+// ============================================
+// PUBLIC API FOR DEBUGGING
+// ============================================
+
+/**
+ * Public function to test mobile features
+ * Call from browser console: testMobileFeatures()
+ */
+window.testMobileFeatures = function() {
+    console.group('Mobile Features Test');
+    console.log('Touch support:', 'ontouchstart' in window);
+    console.log('Screen width:', window.innerWidth);
+    console.log('Screen height:', window.innerHeight);
+    console.log('Device pixel ratio:', window.devicePixelRatio);
+    console.log('Orientation:', screen.orientation ? screen.orientation.type : 'not supported');
+    console.groupEnd();
+    
+    alert('Mobile features test complete! Check console for details.');
+};
+
+/**
+ * Simulate touch event for testing
+ */
+window.simulateTouch = function(element) {
+    if ('ontouchstart' in window) {
+        const touchEvent = new TouchEvent('touchstart', {
+            bubbles: true,
+            cancelable: true,
+            touches: [new Touch({ identifier: 1, target: element })]
+        });
+        element.dispatchEvent(touchEvent);
+    }
+};
