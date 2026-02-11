@@ -40,6 +40,12 @@ button, a {
 /* Safe area insets for notched phones */
 @supports (padding: max(0px)) {
     body {
+
+
+        body {
+    font-family: 'DMSerif', serif;
+}
+
         padding-left: min(0vmin, env(safe-area-inset-left));
         padding-right: min(0vmin, env(safe-area-inset-right));
         padding-top: env(safe-area-inset-top);
@@ -243,7 +249,6 @@ body {
 }
 
 
-
 /* ================================
    DESKTOP / LAPTOP THEME
 ================================ */
@@ -300,4 +305,1005 @@ button, .btn {
         background: #2563EB;
         color: white;
     }
+}
+
+
+
+/* Aapka font update aisa hona chahiye: */
+.hero-text h1 {
+    font-size: 3rem; /* Desktop */
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.25rem; /* Tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.75rem; /* Mobile - Perfect! */
+        line-height: 1.2;
+    }
+}
+
+body {
+    font-family: 'DMSerif', serif;
+}
+
+
+
+@font-face {
+    font-family: 'DMSerif';
+    src: url('fonts/DMSerifText-Regular.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DMSerif';
+    src: url('fonts/DMSerifText-Italic.ttf') format('truetype');
+    font-style: italic;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 4rem; /* Space between columns */
+    align-items: center; /* Vertical alignment */
+}
+
+.photo-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px); /* Glass blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+}
+
+
+/* ==============================
+           ABOUT SECTION WITH PHOTO
+           ============================== */
+                .about {
+            background-color: var(--white);
+        }
+
+        /* 2-COLUMN LAYOUT CONTAINER */
+        .about-container {
+            display: grid;
+            /* Photo on left (35%), Text on right (65%) */
+            grid-template-columns: 35% 65%;
+            /* Space between columns */
+            gap: 4rem;
+            /* Center items vertically */
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* LEFT COLUMN: PHOTO CARD WITH SLIDE-IN ANIMATION */
+        .about-photo {
+            position: relative;
+            /* SLIDE-IN ANIMATION START */
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        /* ANIMATION ACTIVE STATE */
+        .about-photo.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* PHOTO CARD CONTAINER */
+        .photo-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 
+                0 15px 35px rgba(124, 58, 237, 0.15),
+                0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* CARD ACCENT BORDER */
+        .photo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* CARD GLOW EFFECT */
+        .photo-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* HOVER EFFECT ON CARD */
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 25px 50px rgba(124, 58, 237, 0.2),
+                0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* PHOTO INSIDE CARD */
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            display: block;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        /* PHOTO HOVER EFFECT */
+        .photo-card:hover img {
+            transform: scale(1.04);
+        }
+
+        /* RIGHT COLUMN: TEXT CONTENT */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        /* Paragraph styling */
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: left;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        /* Highlight important text */
+        .about-content .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ==============================
+           MOBILE RESPONSIVE STYLES
+           ============================== */
+
+        /* TABLET (992px to 768px) */
+        @media screen and (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 40% 60%;
+                gap: 3rem;
+            }
+            
+            .photo-card {
+                padding: 20px;
+            }
+            
+            .about-content p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* MOBILE (max-width: 768px) */
+        @media screen and (max-width: 768px) {
+            /* STACK VERTICALLY ON MOBILE */
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            /* CENTER PHOTO CARD ON MOBILE */
+            .about-photo {
+                max-width: 400px;
+                margin: 0 auto;
+                /* CHANGE ANIMATION DIRECTION FOR MOBILE */
+                transform: translateY(40px);
+            }
+            
+            .about-photo.active {
+                transform: translateY(0);
+            }
+            
+            .photo-card {
+                padding: 20px;
+                box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+            }
+            
+            .photo-card:hover {
+                transform: translateY(-5px);
+            }
+            
+            .about-content p {
+                text-align: left;
+                font-size: 1.05rem;
+            }
+        }
+
+        /* SMALL PHONES (max-width: 480px) */
+        @media screen and (max-width: 480px) {
+            .about-container {
+                gap: 2.5rem;
+            }
+            
+            .about-photo {
+                max-width: 320px;
+            }
+            
+            .photo-card {
+                padding: 15px;
+            }
+            
+            .photo-card img {
+                border-width: 3px;
+            }
+            
+            .about-content p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+        }
+
+        /* TOUCH DEVICE OPTIMIZATION */
+        @media (hover: none) and (pointer: coarse) {
+            .photo-card:hover {
+                transform: none;
+            }
+            
+            .photo-card:active {
+                transform: scale(0.98);
+                box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+            }
+        }
+
+        /* ==============================
+           MOBILE RESPONSIVE STYLES
+           ============================== */
+
+        /* Tablet (992px to 768px) */
+        @media screen and (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 35% 65%; /* Adjust column ratio */
+                gap: 2.5rem;
+            }
+        }
+
+        /* Mobile (max-width: 768px) */
+        @media screen and (max-width: 768px) {
+            /* Stack columns vertically on mobile */
+            .about-container {
+                grid-template-columns: 1fr; /* Single column */
+                gap: 2.5rem;
+            }
+            
+            /* Center photo on mobile */
+            .about-photo {
+                max-width: 300px; /* Limit maximum width */
+                margin: 0 auto; /* Center the photo */
+            }
+            
+            /* Center text on mobile */
+            .about-content p {
+                text-align: center; /* Center text on mobile */
+            }
+        }
+
+        /* Small Mobile (max-width: 480px) */
+        @media screen and (max-width: 480px) {
+            .about-photo {
+                max-width: 250px; /* Smaller photo on small screens */
+            }
+            
+            .about-photo img {
+                border-width: 4px; /* Thinner border */
+            }
+        }
+        
+.about-img img {
+    width: 280px;        /* size control */
+    height: 320px;
+    object-fit: cover;   /* perfect crop */
+    border-radius: 20px; /* smooth round corners */
+    margin-right: 40px;  /* space between image & text */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 80px;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-img img {
+        width: 220px;
+        height: 260px;
+        margin: 0;
+    }
+}
+
+
+
+/* ABOUT SECTION LAYOUT */
+.about-section {
+    padding: 80px 10%;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* IMAGE CARD STYLE */
+.about-img-card {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    background: #fff;
+    transition: .3s ease;
+}
+
+.about-img-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* RIGHT SIDE TEXT */
+.about-title {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.about-title span {
+    color: #6A00FF;
+}
+
+.about-name {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.about-role {
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.about-description {
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+/* RESUME BUTTON */
+.resume-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #6A00FF;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.resume-btn:hover {
+    background: #5200c9;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 850px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content {
+        align-items: center;
+    }
+}
+
+
+
+
+        .about {
+            background-color: var(--white);
+        }
+
+        /* 2-COLUMN LAYOUT - PHOTO LEFT, TEXT RIGHT */
+        .about-container {
+            display: grid;
+            /* PHOTO LEFT (35%), TEXT RIGHT (65%) */
+            grid-template-columns: 35% 65%;
+            /* Space between columns */
+            gap: 4rem;
+            /* Center items vertically */
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* LEFT COLUMN: PHOTO CARD */
+        .about-photo {
+            position: relative;
+            /* SLIDE-IN ANIMATION START */
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        /* ANIMATION ACTIVE STATE */
+        .about-photo.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* PHOTO CARD STYLING */
+        .photo-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 
+                0 15px 35px rgba(124, 58, 237, 0.15),
+                0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* CARD TOP BORDER ACCENT */
+        .photo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* CARD HOVER EFFECT */
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 25px 50px rgba(124, 58, 237, 0.2),
+                0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* PHOTO INSIDE CARD */
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            display: block;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        /* PHOTO HOVER EFFECT */
+        .photo-card:hover img {
+            transform: scale(1.04);
+        }
+
+        /* RIGHT COLUMN: TEXT CONTENT */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            /* TEXT ON RIGHT SIDE */
+            padding-left: 0;
+        }
+
+        /* PARAGRAPH STYLING - RIGHT SIDE */
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: left; /* TEXT LEFT ALIGNED IN RIGHT COLUMN */
+            margin: 0;
+            max-width: 100%;
+            /* TEXT ALWAYS ON RIGHT */
+            padding: 0;
+        }
+
+        /* HIGHLIGHT IMPORTANT TEXT */
+        .about-content .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* TEXT RIGHT ALIGN OPTION (IF NEEDED) */
+        .about-content.right-align p {
+            text-align: right;
+        }
+
+        /* TEXT CENTER ALIGN OPTION (IF NEEDED) */
+        .about-content.center-align p {
+            text-align: center;
+        }
+
+        /* ==============================
+           MOBILE RESPONSIVE STYLES
+           ============================== */
+
+        /* TABLET (992px to 768px) */
+        @media screen and (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 40% 60%; /* Adjusted for tablet */
+                gap: 3rem;
+            }
+            
+            .photo-card {
+                padding: 20px;
+            }
+            
+            .about-content p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* MOBILE (max-width: 768px) */
+        @media screen and (max-width: 768px) {
+            /* STACK VERTICALLY - PHOTO ABOVE, TEXT BELOW */
+            .about-container {
+                grid-template-columns: 1fr; /* Single column */
+                gap: 3rem;
+            }
+            
+            /* CENTER PHOTO CARD ON MOBILE */
+            .about-photo {
+                max-width: 400px;
+                margin: 0 auto;
+                /* ANIMATION FROM BOTTOM ON MOBILE */
+                transform: translateY(40px);
+            }
+            
+            .about-photo.active {
+                transform: translateY(0);
+            }
+            
+            .photo-card {
+                padding: 20px;
+                box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+            }
+            
+            .photo-card:hover {
+                transform: translateY(-5px);
+            }
+            
+            /* TEXT BELOW PHOTO ON MOBILE */
+            .about-content {
+                padding-left: 0;
+            }
+            
+            .about-content p {
+                text-align: left; /* Keep left aligned on mobile */
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+            
+            /* CENTER TEXT ON MOBILE (OPTIONAL) */
+            .about-content.center-on-mobile p {
+                text-align: center;
+            }
+        }
+
+        /* SMALL PHONES (max-width: 480px) */
+        @media screen and (max-width: 480px) {
+            .about-container {
+                gap: 2.5rem;
+            }
+            
+            .about-photo {
+                max-width: 320px;
+            }
+            
+            .photo-card {
+                padding: 15px;
+            }
+            
+            .photo-card img {
+                border-width: 3px;
+            }
+            
+            .about-content p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+        }
+
+        /* LARGE DESKTOPS (min-width: 1400px) */
+        @media screen and (min-width: 1400px) {
+            .about-container {
+                max-width: 1300px;
+                gap: 5rem;
+            }
+            
+            .about-content p {
+                font-size: 1.2rem;
+                line-height: 1.9;
+            }
+        }
+
+        /* TOUCH DEVICE OPTIMIZATION */
+        @media (hover: none) and (pointer: coarse) {
+            .photo-card:hover {
+                transform: none;
+            }
+            
+            .photo-card:active {
+                transform: scale(0.98);
+                box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr; /* Stack vertically */
+    }
+}
+/* Default: Left aligned in right column */
+.about-content p {
+    text-align: left;
+}
+
+/* Optional: Right aligned */
+.about-content.right-align p {
+    text-align: right;
+}
+
+/* Optional: Center aligned */
+.about-content.center-align p {
+    text-align: center;
+}
+
+
+        .about {
+            background-color: var(--white);
+        }
+
+        /* ABOUT ME HEADING - CENTERED */
+        .about h2 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        /* HEADING UNDERLINE */
+        .about h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        /* 2-COLUMN LAYOUT - PHOTO LEFT, TEXT RIGHT */
+        .about-container {
+            display: grid;
+            /* PHOTO LEFT (35%), TEXT RIGHT (65%) */
+            grid-template-columns: 35% 65%;
+            /* Space between columns */
+            gap: 4rem;
+            /* Center items vertically */
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* LEFT COLUMN: PHOTO CARD */
+        .about-photo {
+            position: relative;
+            /* SLIDE-IN ANIMATION START */
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        /* ANIMATION ACTIVE STATE */
+        .about-photo.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* PHOTO CARD STYLING */
+        .photo-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 
+                0 15px 35px rgba(124, 58, 237, 0.15),
+                0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* CARD TOP BORDER ACCENT */
+        .photo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* CARD HOVER EFFECT */
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 25px 50px rgba(124, 58, 237, 0.2),
+                0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* PHOTO INSIDE CARD */
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            display: block;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        /* PHOTO HOVER EFFECT */
+        .photo-card:hover img {
+            transform: scale(1.04);
+        }
+
+        /* RIGHT COLUMN: TEXT CONTENT */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            /* TEXT ON RIGHT SIDE */
+            padding-left: 0;
+        }
+
+        /* PARAGRAPH STYLING - RIGHT SIDE */
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: left; /* TEXT LEFT ALIGNED IN RIGHT COLUMN */
+            margin: 0;
+            max-width: 100%;
+            /* TEXT ALWAYS ON RIGHT */
+            padding: 0;
+        }
+
+        /* HIGHLIGHT IMPORTANT TEXT */
+        .about-content .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ==============================
+           MOBILE RESPONSIVE STYLES
+           ============================== */
+
+        /* TABLET (992px to 768px) */
+        @media screen and (max-width: 992px) {
+            .about h2 {
+                font-size: 2.2rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .about h2::after {
+                bottom: -12px;
+                width: 70px;
+            }
+            
+            .about-container {
+                grid-template-columns: 40% 60%; /* Adjusted for tablet */
+                gap: 3rem;
+            }
+            
+            .photo-card {
+                padding: 20px;
+            }
+            
+            .about-content p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* MOBILE (max-width: 768px) */
+        @media screen and (max-width: 768px) {
+            .about h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .about h2::after {
+                bottom: -10px;
+                width: 60px;
+                height: 3px;
+            }
+            
+            /* STACK VERTICALLY - PHOTO ABOVE, TEXT BELOW */
+            .about-container {
+                grid-template-columns: 1fr; /* Single column */
+                gap: 3rem;
+            }
+            
+            /* CENTER PHOTO CARD ON MOBILE */
+            .about-photo {
+                max-width: 400px;
+                margin: 0 auto;
+                /* ANIMATION FROM BOTTOM ON MOBILE */
+                transform: translateY(40px);
+            }
+            
+            .about-photo.active {
+                transform: translateY(0);
+            }
+            
+            .photo-card {
+                padding: 20px;
+                box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+            }
+            
+            .photo-card:hover {
+                transform: translateY(-5px);
+            }
+            
+            /* TEXT BELOW PHOTO ON MOBILE */
+            .about-content {
+                padding-left: 0;
+            }
+            
+            .about-content p {
+                text-align: left; /* Keep left aligned on mobile */
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+        }
+
+        /* SMALL PHONES (max-width: 480px) */
+        @media screen and (max-width: 480px) {
+            .about h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .about h2::after {
+                bottom: -8px;
+                width: 50px;
+                height: 3px;
+            }
+            
+            .about-container {
+                gap: 2.5rem;
+            }
+            
+            .about-photo {
+                max-width: 320px;
+            }
+            
+            .photo-card {
+                padding: 15px;
+            }
+            
+            .photo-card img {
+                border-width: 3px;
+            }
+            
+            .about-content p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+        }
+
+        /* LARGE DESKTOPS (min-width: 1400px) */
+        @media screen and (min-width: 1400px) {
+            .about h2 {
+                font-size: 3rem;
+                margin-bottom: 4rem;
+            }
+            
+            .about h2::after {
+                width: 100px;
+                height: 5px;
+                bottom: -20px;
+            }
+            
+            .about-container {
+                max-width: 1300px;
+                gap: 5rem;
+            }
+            
+            .about-content p {
+                font-size: 1.2rem;
+                line-height: 1.9;
+            }
+        }
+
+        /* TOUCH DEVICE OPTIMIZATION */
+        @media (hover: none) and (pointer: coarse) {
+            .photo-card:hover {
+                transform: none;
+            }
+            
+            .photo-card:active {
+                transform: scale(0.98);
+                box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+            }
+        }
+
+        .about h2 {
+    text-align: center;  /* THIS CENTERS THE HEADING */
+    width: 100%;         /* FULL WIDTH */
+    display: block;      /* BLOCK LEVEL ELEMENT */
+    margin-bottom: 3rem; /* SPACE BELOW HEADING */
+}
+
+.about h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;           /* CENTER HORIZONTALLY */
+    transform: translateX(-50%); /* PERFECT CENTERING */
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
