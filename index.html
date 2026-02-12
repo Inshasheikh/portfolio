@@ -808,6 +808,8 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#education">Education</a></li>
+
         </ul>
     </nav>
 
@@ -923,74 +925,226 @@
     <!-- ==============================
          SKILLS SECTION
          ============================== -->
-    <section id="skills" class="skills">
-        <h2>My Skills</h2>
-        <div class="skill-box">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Python</span>
-            <span>SQL</span>
-            <span>Oracle</span>
-            <span>Abacus</span>
-            <span>Spoken English</span>
-            <span>Git & GitHub</span>
-            <span>Problem Solving</span>
-            <span>Responsive Design</span>
-            <span>JavaScript Basics</span>
-            <span>Cybersecurity Basics</span>
+    <section id="skills" class="skills-section">
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skills-grid">
+
+        <!-- HTML -->
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+            <p>HTML</p>
         </div>
-    </section>
+
+        <!-- CSS -->
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+            <p>CSS</p>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+            <p>JavaScript</p>
+        </div>
+
+        <!-- Python -->
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+            <p>Python</p>
+        </div>
+
+        <!-- SQL -->
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+            <p>SQL</p>
+        </div>
+
+        <!-- Oracle -->
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg">
+            <p>Oracle</p>
+        </div>
+
+        <!-- Git -->
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
+            <p>Git</p>
+        </div>
+
+        <!-- GitHub -->
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+            <p>GitHub</p>
+        </div>
+
+        <!-- Cybersecurity -->
+        <div class="skill-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3917/3917215.png">
+            <p>Cybersecurity</p>
+        </div>
+
+        <!-- Responsive Design -->
+        <div class="skill-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png">
+            <p>Responsive Design</p>
+        </div>
+
+        <!-- Spoken English -->
+        <div class="skill-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2885/2885433.png">
+            <p>Spoken English</p>
+        </div>
+
+        <!-- Abacus -->
+        <div class="skill-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2933/2933656.png">
+            <p>Abacus</p>
+        </div>
+
+    </div>
+</section>
+
 
     <!-- ==============================
          PROJECTS SECTION
          ============================== -->
-    <section id="projects" class="projects">
-        <h2>My Projects</h2>
-        <div class="project-container">
-            <div class="project-card">
-                <h3>Simple Calculator (Python)</h3>
-                <p>A basic calculator application built with Python that performs addition, subtraction, 
-                   multiplication, and division operations with a user-friendly interface.</p>
-                <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
+<section id="projects">
+    <h2 class="section-title">My Projects</h2>
 
-            <div class="project-card">
-                <h3>Number Guessing Game</h3>
-                <p>An interactive Python game where the player guesses a randomly generated number 
-                   with hints and score tracking for an engaging gaming experience.</p>
-                <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-            </div>
+    <div class="projects-grid">
 
-            <div class="project-card">
-                <h3>Responsive Portfolio Website</h3>
-                <p>A modern, fully responsive portfolio website with a purple-gradient theme, 
-                   animations, and mobile-first design built with HTML, CSS & JavaScript.</p>
-                <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
+        <!-- Project 1 -->
+<div class="project-card">
+
+    <!-- 🔥 ICON BOX ADD KIYA -->
+    <div class="project-icon">
+        <div class="icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M16 2H8C6.74022 2 ... (your SVG full path) ..." fill="currentColor"/>
+            </svg>
+        </div>
+    </div>
+    <!-- 🔥 ICON BOX END -->
+
+    <img src="project1.jpeg" alt="Simple Calculator">
+
+    <div class="project-title">Simple Calculator (Python)</div>
+
+    <div class="project-info">
+        <p>A basic calculator built using Python supporting + - × ÷ operations.</p>
+
+        <div class="project-buttons">
+            <a href="#" class="view-btn" target="_blank">View</a>
+            <a href="#" class="code-btn" target="_blank">Code</a>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <img src="project2.jpeg" alt="Number Game">
+
+            <div class="project-title">Number Guessing Game</div>
+
+            <div class="project-info">
+                <p>A Python game where the user guesses a randomly selected number.</p>
+
+                <div class="project-buttons">
+                    <a href="#" class="view-btn" target="_blank">View</a>
+                    <a href="#" class="code-btn" target="_blank">Code</a>
+                </div>
             </div>
         </div>
-    </section>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <img src="project3.jpeg" alt="Portfolio Website">
+
+            <div class="project-title">Responsive Portfolio</div>
+
+            <div class="project-info">
+                <p>A responsive gradient portfolio built with HTML, CSS & JavaScript.</p>
+
+                <div class="project-buttons">
+                    <a href="#" class="view-btn" target="_blank">View</a>
+                    <a href="#" class="code-btn" target="_blank">Code</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section> 
+
+<!--MY EDUCATION SECTION -->
+<section class="education-section" id="education">
+    <h2 class="edu-title">🎓 My Education</h2>
+    <p class="edu-tagline">Education Is Not The Learning Of Facts, But The Training Of The Mind To Think.</p>
+
+    <div class="edu-card">
+        <img src="stjoseph.jpeg" class="edu-img">
+        <div class="edu-content">
+            <h3>Class-10 By Central Board of Secondary Education>
+            <p>St Josephs English Medium School |CBSC</p>
+            <span class="edu-status">2023 - 2024 |Completed </span>
+        </div>
+    </div>
+
+    <div class="edu-card">
+        <img src="kvs-logo.png" class="edu-img">
+        <div class="edu-content">
+            <h3>class-12 | commerce </h3>
+            <p>kendriya vidyalaya | CBSE</p>
+            <span class="edu-status completed">2025 - 2026 | Pursuing</span>
+        </div>
+    </div>
+</section>
+
 
     <!-- ==============================
          CONTACT SECTION
          ============================== -->
-    <section id="contact" class="contact">
-        <h2>Get In Touch</h2>
-        <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem; color: #666;">
-            Feel free to reach out to me for collaboration, opportunities, or just to say hello!
-        </p>
-        <div class="contact-box">
-            <a href="mailto:insasheikh2007@gmail.com" class="icon" target="_blank" title="Send Email to Insha">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://github.com/Inshasheikh" class="icon" target="_blank" title="View GitHub Profile">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/insha-sheikh-8750ab394" class="icon" target="_blank" title="Connect on LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-        </div>
-    </section>
+<section class="contact-section">
+    <div class="contact-header">
+        <span class="icon">🎧</span>
+        <h2>Get In <span>Touch</span></h2>
+    </div>
 
+    <div class="contact-container">
+        <div class="contact-illustration">
+            <img src="cont.jpeg" alt="Contact Illustration">
+        </div>
+
+        <div class="contact-form">
+            <form>
+                <div class="input-group">
+                    <span class="input-icon">👤</span>
+                    <input type="text" placeholder="Name" required>
+                </div>
+                
+                <div class="input-group">
+                    <span class="input-icon">✉️</span>
+                    <input type="email" placeholder="Email" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-icon">📞</span>
+                    <input type="tel" placeholder="Phone">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-icon message-icon">💬</span>
+                    <textarea placeholder="Message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Submit <span class="send-icon">➔</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
     <!-- ==============================
          FOOTER
          ============================== -->
