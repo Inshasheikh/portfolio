@@ -1307,3 +1307,475 @@ body {
     height: 4px;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
+
+
+
+.skills-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #5A00FF;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.skill-card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+.skill-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-s
+    hadow: 0 0 25px rgba(138, 43, 226, 0.7);
+}
+
+
+
+/* ===========================
+   SECTION TITLE
+=========================== */
+.skills-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    background: linear-gradient(45deg, #7A00FF, #00D4FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* ===========================
+   SKILLS GRID
+=========================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 25px;
+    max-width: 950px;
+    margin: auto;
+}
+
+
+/* ===========================
+   GRADIENT CARDS + 3D GLOW
+=========================== */
+.skill-card {
+    background: linear-gradient(135deg, #1a1a1a, #292929);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    transform-style: preserve-3d;
+}
+
+/* ICONS */
+.skill-card img {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 12px;
+    transition: 0.3s ease-in-out;
+}
+
+/* ICON TEXT */
+.skill-card p {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+
+/* ===========================
+   HOVER EFFECTS (3D Floating + Glow)
+=========================== */
+.skill-card:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 0 25px rgba(123, 31, 255, 0.8),
+                0 0 40px rgba(0, 212, 255, 0.6);
+}
+
+.skill-card:hover img {
+    transform: translateZ(20px);
+    filter: drop-shadow(0 0 12px #8A2BE2);
+}
+
+
+/* ===========================
+   SCROLL ANIMATION
+=========================== */
+.skill-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* Stagger animation */
+.skill-card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+.skill-card:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.skills-section {
+    background: linear-gradient(120deg, #2A00B7, #00bbff, #00C6FF);
+    padding: 80px 20px;
+    border-radius: 0 0 35px 35px;
+}
+
+
+
+/* PROJECTS TITLE */
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #4C39FF;
+}
+
+/* GRID LAYOUT */
+.projects-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* PROJECT CARD */
+.project-card {
+    position: relative;
+    background: #101010;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* IMAGE */
+.project-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    transition: 0.4s ease;
+}
+
+/* HOVER ZOOM */
+.project-card:hover img {
+    transform: scale(1.12);
+}
+
+/* YELLOW TITLE BAR */
+.project-title {
+    background: #FFCA28;
+    padding: 12px 15px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* HIDDEN INFO */
+.project-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -120px;
+    background: rgba(10,10,10,0.92);
+    padding: 18px;
+    color: white;
+    transition: 0.4s ease-in-out;
+}
+
+/* SHOW INFO ON HOVER */
+.project-card:hover .project-info {
+    bottom: 40px;
+}
+
+/* TEXT */
+.project-info p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+/* BUTTONS */
+.project-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.project-buttons a {
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* BUTTON COLORS */
+.view-btn {
+    background: #FFCA28;
+    color: #000;
+}
+.code-btn {
+    background: #fff;
+    color: #000;
+}
+
+/* BUTTON HOVER */
+.project-buttons a:hover {
+    opacity: 0.8;
+    transform: scale(1.06);
+}
+
+:root {
+    --primary-purple: #4b0082; /* Adjust to match your theme */
+    --bg-light: #f4f4f9;
+    --border-color: #ccc;
+}
+
+.contact-section {
+    padding: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-header h2 span {
+    color: var(--primary-purple);
+}
+
+.contact-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--bg-light);
+    border-radius: 20px;
+    padding: 40px;
+    gap: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+\
+
+.education-section {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.edu-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #5b2d8f;
+}
+
+.edu-tagline {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.edu-card {
+    display: flex;
+    gap: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform .3s ease;
+}
+
+.edu-card:hover {
+    transform: translateY(-5px);
+}
+
+.edu-img {
+    width: 180px;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.edu-content h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.edu-content p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.edu-status {
+    font-weight: 600;
+    color: #1e8f43;
+}
+
+.completed {
+    color: #0b7a27;
+}
+
+
+
+
+
+
+
+
+:root {
+    --primary-purple: #4b0082; /* Adjust to match your theme */
+    --bg-light: #f4f4f9;
+    --border-color: #ccc;
+}
+
+.contact-section {
+    padding: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-header h2 span {
+    color: var(--primary-purple);
+}
+
+.contact-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--bg-light);
+    border-radius: 20px;
+    padding: 40px;
+    gap: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.contact-illustration {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-illustration img {
+    max-width: 100%;
+    height: auto;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.message-icon {
+    top: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: #e9e9f0;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+.submit-btn {
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    float: right;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #310055;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}
