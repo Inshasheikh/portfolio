@@ -26,5 +26,7 @@ CSS
 
 SVG icons
 
+Javascript 
+
 Custom animations
 
