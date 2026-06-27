@@ -2,7 +2,7 @@
 This repository contains the source code of my personal portfolio website.
 It showcases my skills, projects, contact details, and my online presence.
 
-     #Features
+      #Features
 
 Modern & clean UI
 
